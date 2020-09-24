@@ -21,7 +21,14 @@ pipeline {
 			echo 'Project packaging stage'
 			bat label: 'Project packaging', script: '''mvn package'''
 		}
-	} 		
+	} 
+	  
+	stage('Execute .jar file'){
+		steps{
+			echo 'execution'
+			bat label: 'project execution', script: '''java -jar target/maven-CLI-demo.jar com.example.user.App'''
+		}
+	}
     
   }
 }
