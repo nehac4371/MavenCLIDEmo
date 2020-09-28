@@ -29,6 +29,13 @@ pipeline {
  		-Dsonar.login=8f0c6adb70b43372c63524783d8949f474f8acca'''
           }
       }
+	  
+stage('Jmeter'){
+         steps{
+            bat label: 'jmeter',script:'jmeter -n -Jjmeter.save.saveservice.output_format=xml -t C:\\jmetertestplans\\jmeter-demo.jmx -l C:\\jmeter-test-results\\test-demo.jtl'
+          }
+	}
+
 
 	
 	stage('Maven Package'){
